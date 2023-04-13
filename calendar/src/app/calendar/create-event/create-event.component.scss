@@ -1,0 +1,38 @@
+.w100 {
+    width: 100%;
+}
+
+.w48 {
+    width: 48%;
+}
+
+.create-event-container {
+
+    .timeContainer,
+    .closeBox,
+    .button {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 24px;
+
+    }
+
+    .closeBox {
+        justify-content: end;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+
+    .button {
+        justify-content: center;
+
+        button {
+            width: 150px;
+            height: 48px;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="calendar">
+    <ng-container *ngFor="let column of displayedColumns;let i=index" [matColumnDef]="column">
+        <th mat-header-cell *matHeaderCellDef>{{column}}</th>
+        <ng-container *matCellDef="let element">
+            <td>
+                <div class="dateBox" (click)="selectDay(element.days[i].value)"
+                    [class.disabled]="element.days[i].disabled" [class.active]="element.days[i].active"
+                    [class.selected]="element.days[i].selected">
+                    {{element.days[i].value | date: 'dd'}}
+                </div>
+            </td>
+        </ng-container>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

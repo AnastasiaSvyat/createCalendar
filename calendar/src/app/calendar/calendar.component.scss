@@ -1,0 +1,37 @@
+th {
+    text-align: center;
+}
+
+td div {
+    width: 97%;
+    height: 50px;
+    border: 1px solid rgb(29, 102, 122);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+
+    &.disabled {
+        opacity: .6;
+    }
+
+    &:hover:not(.disabled) {
+        background-color: rgb(175, 227, 241);
+        cursor: pointer;
+    }
+
+    &.active {
+        color: rgb(161, 22, 22);
+        font-weight: 900;
+    }
+
+    &.selected {
+        color: rgb(9, 160, 210);
+        font-weight: 900;
+        background-color: rgb(178, 218, 232);
+    }
+}
+
+table {
+    background-color: #e7f9f8;
+}

@@ -1,0 +1,35 @@
+<div class="event-organaizer-container">
+
+    <header>
+        <strong>Date:</strong> {{ dateActionService.currentDate | async | dateTransform: 'DD.MM.YYYY' }}
+    </header>
+
+    <main>
+        <div>
+            <button (click)="createNewEvent()" mat-icon-button color="accent">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <ul *ngIf="eventsList.length; else noEvents">
+            <li *ngFor="let event of eventsList; let i = index">
+                <span>
+                    {{event.title}} ( {{event.type}} )
+                    <strong>time:</strong> {{event.start}} - {{event.end}}
+                </span>
+                <span>
+                    <button mat-raised-button color="primary" (click)="editEvent(event, i)">
+                        EDIT
+                    </button>
+
+                    <button mat-raised-button color="warn" (click)="deleteEvent(i)">
+                        DELETE
+                    </button>
+                </span>
+            </li>
+        </ul>
+
+        <ng-template #noEvents>
+            No events yet...
+        </ng-template>
+    </main>
+</div>

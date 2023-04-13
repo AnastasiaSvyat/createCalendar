@@ -1,0 +1,59 @@
+<div class="create-event-container">
+
+    <div class="closeBox">
+        <button mat-icon-button color="primary" (click)="close()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <h2 class="mt24 fw500">{{data.head}} event:</h2>
+
+    <form [formGroup]="eventForm" mat-dialog-content fxLayout="column" fxLayoutAlign=" center">
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w100">
+            <mat-label>Title</mat-label>
+            <input type="text" placeholder="Enter title event..." formControlName="title" matInput />
+            <mat-error class="helper-text red-text">
+                <span *ngIf="title?.errors?.['required']">Title is required.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" class="w100">
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type" placeholder="Choose event type...">
+                <mat-option value="Holiday">Holiday</mat-option>
+                <mat-option value="Weekday">Weekday</mat-option>
+            </mat-select>
+            <mat-error class="helper-text red-text">
+                <span *ngIf="type?.errors?.['required']">Type is required.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <div class="timeContainer">
+
+            <mat-form-field class="w48" appearance="outline" floatLabel="always">
+                <mat-label>Start</mat-label>
+                <input type="time" atp-time-picker formControlName="start" matInput />
+                <mat-error *ngIf="eventForm?.controls?.['start']?.hasError('compareTime')">
+                    Start must be less than end
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w48" appearance="outline" floatLabel="always">
+                <mat-label>End</mat-label>
+                <input type="time" atp-time-picker formControlName="end" matInput />
+                <mat-error *ngIf="eventForm?.controls?.['end']?.hasError('compareTime')">
+                    End must be greater than start
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="button">
+            <button mat-raised-button color="primary" [disabled]="eventForm.invalid"
+                (click)="saveEvent(eventForm.value)">
+                SAVE
+            </button>
+        </div>
+
+    </form>
+</div>

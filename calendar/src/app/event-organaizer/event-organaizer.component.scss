@@ -1,0 +1,47 @@
+.event-organaizer-container {
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid rgb(7, 87, 107);
+    box-shadow: 0 0 10px black;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    main {
+        width: 97%;
+        margin-top: 5px;
+        padding-bottom: 5px;
+
+        div {
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            margin-bottom: 5px;
+        }
+
+        li {
+            width: 100%;
+            list-style-type: none;
+            font-weight: 100;
+            display: flex;
+            justify-content: space-between;
+            padding: .3rem 15px;
+            border: 0.5px solid rgb(7, 87, 107);
+            margin-top: 3px;
+
+            &:first-child {
+                align-items: center;
+            }
+
+            span button {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    header {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+}
