@@ -34,5 +34,6 @@ export class DateActionService {
 
   changeViewCalendar(option: string) {
     this.whichCalendar.next(option)
+    
   }
 }
